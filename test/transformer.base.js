@@ -1158,10 +1158,7 @@ module.exports = function base(transformer, pathname, transformer_name) {
         primus.on('connection', function (spark) {
           expect(spark.query).to.be.a('object');
 
-          if (
-              'unixdomainwebsockets' !== transformer_name
-            && 'sockjs' !== transformer
-          ) {
+          if ('unixdomainwebsockets' !== transformer_name) {
             expect(spark.query.foo).to.equal('bar');
           }
 
